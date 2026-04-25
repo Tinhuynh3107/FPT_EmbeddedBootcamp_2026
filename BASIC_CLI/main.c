@@ -49,12 +49,11 @@ int main() {
   printf("/*        Welcome to the Command Line Interface!       */ \n");
   printf("What do you go by? \n");
   scanf("%s", name);
+  getchar();
   printf("Hello, %s! \r\nType 'help' to see available commands.\n", name);
   while (1) {
     printf("Enter command: ");
-    if (fgets(input, sizeof(input), stdin) == NULL) {
-      continue;
-    }
+    fgets(input, sizeof(input), stdin);
     cmd_line_parser(cmd_tbl, input);
     if (strcmp(input, "exit\n") == 0) {
       break;
